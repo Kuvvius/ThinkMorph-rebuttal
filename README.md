@@ -1,48 +1,11 @@
 <p align="center">
-    <img src="assets/logo.png" width="40%"> <br>
+   <img src="assets/logo.png" width="40%"> <br>
 </p>
 
 
 ## Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning
 
-<p align="center">
-  <a href="https://thinkmorph.github.io/">
-    <img
-      src="https://img.shields.io/badge/ThinkMorph-Website-0A66C2?logo=safari&logoColor=white"
-      alt="ThinkMorph Website"
-    />
-  </a>
-  <a href="https://arxiv.org/abs/2510.27492">
-    <img
-      src="https://img.shields.io/badge/ThinkMorph-Paper-red?logo=arxiv&logoColor=red"
-      alt="ThinkMorph Paper on arXiv"
-    />
-  </a>
-  <a href="https://huggingface.co/ThinkMorph/ThinkMorph-7B">
-    <img 
-        src="https://img.shields.io/badge/ThinkMorph-Model-yellow?logo=huggingface&logoColor=yellow" 
-        alt="ThinkMorph Model"
-    />
-  </a>
-  <a href="https://huggingface.co/ThinkMorph">
-    <img 
-        src="https://img.shields.io/badge/ThinkMorph-Dataset-yellow?logo=huggingface&logoColor=yellow" 
-        alt="ThinkMorph Dataset"
-    />
-  </a>
-  <a href="https://x.com/Kuvvius/status/1985388865595851135">
-    <img
-      src="https://img.shields.io/badge/ThinkMorph-Twitter-blue?logo=x&logoColor=black"
-      alt="BAGEL Demo"
-    />
-  </a>
-</p>
-
-🌟  This is the official repository which contains the training and inference code for ThinkMorph.
-
-## 💥 News 
-- **[2025.10.29]** Our model checkpoint and training data are now accessible at [Huggingface](https://huggingface.co/ThinkMorph).
-- **[2025.10.29]** Our paper is now accessible at [arxiv](https://arxiv.org/abs/2510.27492).
+🌟  This repository contains the training and inference code for ThinkMorph.
 
 ## 👀 About ThinkMorph
 
@@ -59,31 +22,14 @@ These findings suggest promising directions for characterizing the emergent capa
 ## 🔥 Quick Start
 
 1️⃣  Set up environment
+
 ```bash
-git clone https://github.com/ThinkMorph/ThinkMorph.git
-cd ThinkMorph
 conda create -n thinkmorph python=3.10 -y
 conda activate thinkmorph
 pip install -r requirements.txt
 ```
 
-2️⃣  Download checkpoint
-```bash
-from huggingface_hub import snapshot_download
-
-save_dir = "models/ThinkMorph-7B"
-repo_id = "ThinkMorph/ThinkMorph-7B"
-cache_dir = save_dir + "/cache"
-
-snapshot_download(cache_dir=cache_dir,
-  local_dir=save_dir,
-  repo_id=repo_id,
-  local_dir_use_symlinks=False,
-  resume_download=True,
-  allow_patterns=["*.json", "*.safetensors", "*.bin", "*.py", "*.md", "*.txt"],
-)
-
-```
+2️⃣  Download model checkpoint (path to be provided during review)
 
 3️⃣ Use `inference.ipynb` to play with ThinkMorph!
 
@@ -91,29 +37,11 @@ snapshot_download(cache_dir=cache_dir,
 
 ### Training Data prepration
 
-We opensource our training data mentioned in our paper containing four tasks: **Jigsaw Assembly**, **Spatial Navigation**, **Visual Search** , and **Chart Refocus**. Here we show typical examples of four tasks. Training data can be downloaded from [Huggingface](https://huggingface.co/ThinkMorph).
+Our training data contains four tasks: **Jigsaw Assembly**, **Spatial Navigation**, **Visual Search** , and **Chart Refocus**. Training data will be made available after the review process.
 
+1. **Download the training dataset** (to be provided)
 
-
-1. **Download the training dataset**
-
-   ```python
-    from datasets import load_dataset
-
-    # Jigsaw Assembly
-    dataset = load_dataset("ThinkMorph/Jigsaw_Assembly", split="train")
-
-    # Spatial Navigation
-    dataset = load_dataset("ThinkMorph/Spatial_Navigation", split="train")
-
-    # Visual Search
-    dataset = load_dataset("ThinkMorph/Visual_Search", split="train")
-
-    # Chart Refocus
-    dataset = load_dataset("ThinkMorph/Chart_Refocus", split="train")
-    ```
-
-2. Convert the downloaded dataset into a data format suitable for model training. For details on the Bagel officially supported data formats, see in [Train](https://github.com/ByteDance-Seed/Bagel/blob/main/TRAIN.md). Based on Bagel's implementation, we modify the training code to support our interleaved data format, and an easy-to-understand example of a parquet file is shown below:
+2. Convert the downloaded dataset into a data format suitable for model training. We modify the training code to support our interleaved data format, and an easy-to-understand example of a parquet file is shown below:
 
 ```python
 {
@@ -159,11 +87,11 @@ torchrun \
 ```
 
 You can replace the variables in the script with your own before running. More training scripts are provided in `./script`. 
-See Bagel's [TRAIN](https://github.com/ByteDance-Seed/Bagel/blob/main/TRAIN.md) for more details.
+See TRAIN.md for more details.
 
 ### Eval
 
-All evaluations are conducted using the [`VLMEvalKit`](https://github.com/open-compass/VLMEvalKit) framework for consistency and reproducibility. The inference process can be referred to [infernece.ipynb](inference.ipynb)
+All evaluations are conducted using the VLMEvalKit framework for consistency and reproducibility. The inference process can be referred to [infernece.ipynb](inference.ipynb)
 
 ## 📊 Benchmarks
 
@@ -185,14 +113,4 @@ All evaluations are conducted using the [`VLMEvalKit`](https://github.com/open-c
 
 ## ✍️ Citation
 
-```bibtex
-@misc{gu2025thinkmorphemergentpropertiesmultimodal,
-      title={ThinkMorph: Emergent Properties in Multimodal Interleaved Chain-of-Thought Reasoning}, 
-      author={Jiawei Gu and Yunzhuo Hao and Huichen Will Wang and Linjie Li and Michael Qizhe Shieh and Yejin Choi and Ranjay Krishna and Yu Cheng},
-      year={2025},
-      eprint={2510.27492},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2510.27492}, 
-}
-```
+Citation information will be provided after publication.

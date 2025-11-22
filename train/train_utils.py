@@ -1,4 +1,4 @@
-# Copyright 2025 Bytedance Ltd. and/or its affiliates.
+# Copyright 2025 Anonymous Authors.
 # SPDX-License-Identifier: Apache-2.0
 
 import logging

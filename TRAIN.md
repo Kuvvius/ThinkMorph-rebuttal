@@ -1,17 +1,11 @@
 # Data prepration
 
-We provide data examples for **T2I**, **Editing**, and **VLM** tasks. The T2I dataset is generated using [FLUX.1‑dev](https://huggingface.co/black-forest-labs/FLUX.1-dev); the editing examples are randomly sampled from [SEED‑Data‑Edit‑Part3](https://huggingface.co/datasets/AILab-CVC/SEED-Data-Edit-Part2-3); and the VLM set is sourced from [LLaVA‑OneVision‑Data](https://huggingface.co/datasets/lmms-lab/LLaVA-OneVision-Data).
+We provide data examples for **T2I**, **Editing**, and **VLM** tasks. The T2I dataset is generated using FLUX.1‑dev; the editing examples are randomly sampled from publicly available editing datasets; and the VLM set is sourced from existing vision-language datasets.
 
 We offer examples in both raw-image folder and parquet shard formats. For other data formats, you can use our dataset code as a template and extend it as needed.
 
 
-1. **Download the sample dataset**
-
-   ```bash
-   wget -O bagel_example.zip \
-     https://lf3-static.bytednsdoc.com/obj/eden-cn/nuhojubrps/bagel_example.zip
-   unzip bagel_example.zip -d /data
-   ```
+1. **Download the sample dataset** (will be provided after review)
 2. **Expected hierarchy**
 
    ```text
