@@ -9,9 +9,6 @@
 
 ## 👀 About ThinkMorph
 
-<p align="center">
-    <img src="assets/thinkmorph.jpg" width="100%"> <br>
-</p>
 
 We present **ThinkMorph**, a unified model fine-tuned on ∼24K high-quality interleaved reasoning traces across tasks, learning to generate progressive text–image reasoning steps that
 concretely manipulate visual content while maintaining coherent verbal logic.
